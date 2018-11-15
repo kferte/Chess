@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Pawn extends Piece {
 
-    private final static int[] CANDIDATE_MOVE_COORDINATES = {8, 16};
+    private final static int[] CANDIDATE_MOVE_COORDINATES = {8, 16, 7, 9};
 
     Pawn(int piecePosition, final Alliance pieceAllience) {
         super(piecePosition, pieceAllience);
@@ -23,22 +23,42 @@ public class Pawn extends Piece {
         final List<Move> legalMoves = new ArrayList<>();
 
         for (final int currentCandidateOffset : CANDIDATE_MOVE_COORDINATES){
-            final int candidateDestinationCoordinates = this.piecePosition + (this.getPieceAllience().getDirection() * currentCandidateOffset);
+            final int candidateDestinationCoordinate = this.piecePosition + (this.getPieceAllience().getDirection() * currentCandidateOffset);
 
-            if(!BoardUtils.isValidTileCoordinate(candidateDestinationCoordinates)){
+            if(!BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){
                 continue;
             }
 
-            if(currentCandidateOffset == 8 && board.getTile(candidateDestinationCoordinates).isTileOccupied()){
-                legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinates));
+            if(currentCandidateOffset == 8 && board.getTile(candidateDestinationCoordinate).isTileOccupied()){
+                legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
             } else if(currentCandidateOffset == 16 && this.isFirstMove() &&
                     (BoardUtils.SECOND_ROW[this.piecePosition]) && this.getPieceAllience().isBlack() ||
                     (BoardUtils.SEVENTH_ROW[this.piecePosition]) && this.getPieceAllience().isWhite()){
                 final int behindCandidateDestinationCoordinate = this.piecePosition + (this.pieceAllience.getDirection() * 8);
 
                 if(!board.getTile(behindCandidateDestinationCoordinate).isTileOccupied() &&
-                        !board.getTile(candidateDestinationCoordinates).isTileOccupied()){
-                    legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinates));
+                        !board.getTile(candidateDestinationCoordinate).isTileOccupied()){
+                    legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
+                }
+            } else if(currentCandidateOffset == 7 &&
+                    !((BoardUtils.EIGHTH_COLUMN[this.piecePosition] && this.pieceAllience.isWhite()) ||
+                    (BoardUtils.FIRST_COLUMN[this.piecePosition] && this.pieceAllience.isBlack()))){
+                if(board.getTile(candidateDestinationCoordinate).isTileOccupied()){
+                    final Piece pieceOnCandidate = board.getTile(candidateDestinationCoordinate).getPiece();
+
+                    if(this.pieceAllience != pieceOnCandidate.getPieceAllience()){
+                        legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
+                    }
+                }
+            } else if(currentCandidateOffset == 9 &&
+                    !((BoardUtils.FIRST_COLUMN[this.piecePosition] && this.pieceAllience.isWhite()) ||
+                    (BoardUtils.EIGHTH_COLUMN[this.piecePosition] && this.pieceAllience.isBlack()))){
+                if(board.getTile(candidateDestinationCoordinate).isTileOccupied()){
+                    final Piece pieceOnCandidate = board.getTile(candidateDestinationCoordinate).getPiece();
+
+                    if(this.pieceAllience != pieceOnCandidate.getPieceAllience()){
+                        legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
+                    }
                 }
             }
         }
