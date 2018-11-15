@@ -1,6 +1,5 @@
 package pieces;
 
-import Alliance;
 import board.Board;
 import board.Move;
 
@@ -14,6 +13,10 @@ public abstract class Piece {
     Piece(final int piecePosition, final Alliance pieceAllience){
         this.pieceAllience = pieceAllience;
         this.piecePosition = piecePosition;
+    }
+
+    public Alliance getPieceAllience(){
+        return pieceAllience;
     }
 
     public abstract List<Move> calculateLegalMoves(final Board board);
