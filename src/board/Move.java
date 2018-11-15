@@ -1,5 +1,6 @@
 package board;
 
+import pieces.Pawn;
 import pieces.Piece;
 
 public abstract class Move {
@@ -28,6 +29,13 @@ public abstract class Move {
         public AttackMove(final Board board, final Piece movedPiece, final int destinationCoordinate, final Piece attackedPiece) {
             super(board, movedPiece, destinationCoordinate);
             this.attackedPiece = attackedPiece;
+        }
+    }
+
+    public static final class PawnMove extends Move {
+
+        public PawnMove(final Board board, final Piece movedPiece, final int destinationCoordinates) {
+            super(board, movedPiece, destinationCoordinates);
         }
     }
 }
