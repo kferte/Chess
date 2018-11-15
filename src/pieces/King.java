@@ -14,7 +14,7 @@ public class King extends Piece {
 
     private final static int[] CANDIDATE_MOVE_COORDINATES = { -9, -8, -7, -1, 1, 7, 8, 9};
 
-    King(int piecePosition, Alliance pieceAllience) {
+    public King(int piecePosition, Alliance pieceAllience) {
         super(piecePosition, pieceAllience);
     }
 
@@ -38,7 +38,7 @@ public class King extends Piece {
                     legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
                 } else {
                     final Piece pieceAtDestination = candidateDestinationTile.getPiece();
-                    final Alliance pieceAtDestinationAllience = pieceAtDestination.getPieceAllience();
+                    final Alliance pieceAtDestinationAllience = pieceAtDestination.getPieceAlliance();
 
                     if(this.pieceAllience != pieceAtDestinationAllience) {
                         legalMoves.add(new Move.AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
@@ -48,6 +48,11 @@ public class King extends Piece {
         }
 
         return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public String toString(){
+        return PieceType.KING.toString();
     }
 
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset){
