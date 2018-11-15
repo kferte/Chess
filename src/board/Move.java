@@ -31,11 +31,4 @@ public abstract class Move {
             this.attackedPiece = attackedPiece;
         }
     }
-
-    public static final class PawnMove extends Move {
-
-        public PawnMove(final Board board, final Piece movedPiece, final int destinationCoordinates) {
-            super(board, movedPiece, destinationCoordinates);
-        }
-    }
 }
