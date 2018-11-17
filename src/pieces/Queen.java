@@ -43,7 +43,7 @@ public class Queen extends Piece {
                         final Piece pieceAtDestination = candidateDestinationTile.getPiece();
                         final Alliance pieceAtDestinationAllience = pieceAtDestination.getPieceAlliance();
 
-                        if(this.pieceAllience != pieceAtDestinationAllience) {
+                        if(this.pieceAlliance != pieceAtDestinationAllience) {
                             legalMoves.add(new Move.AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
                         }
                         break;
@@ -53,6 +53,11 @@ public class Queen extends Piece {
         }
 
         return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public Queen movePiece(final Move move) {
+        return new Queen(move.getDestinationCoordinate(), move.getMovedPiece().getPieceAlliance());
     }
 
     @Override
