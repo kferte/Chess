@@ -1,8 +1,8 @@
-package board;
+package engine.board;
 
-import pieces.Pawn;
-import pieces.Piece;
-import pieces.Rook;
+import engine.pieces.Pawn;
+import engine.pieces.Piece;
+import engine.pieces.Rook;
 
 public abstract class Move {
 

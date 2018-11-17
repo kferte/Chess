@@ -1,6 +1,6 @@
-package board;
+package engine.board;
 import com.google.common.collect.ImmutableMap;
-import pieces.Piece;
+import engine.pieces.Piece;
 
 import java.util.HashMap;
 import java.util.Map;

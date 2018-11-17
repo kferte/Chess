@@ -1,8 +1,9 @@
-package pieces;
+package engine.pieces;
 
-import board.Board;
-import board.BoardUtils;
-import board.Move;
+import engine.Alliance;
+import engine.board.Board;
+import engine.board.BoardUtils;
+import engine.board.Move;
 import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;

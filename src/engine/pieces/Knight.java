@@ -1,11 +1,12 @@
-package pieces;
+package engine.pieces;
 
-import board.Board;
-import board.BoardUtils;
-import board.Move;
-import board.Move.AttackMove;
-import board.Move.MajorMove;
-import board.Tile;
+import engine.Alliance;
+import engine.board.Board;
+import engine.board.BoardUtils;
+import engine.board.Move;
+import engine.board.Move.AttackMove;
+import engine.board.Move.MajorMove;
+import engine.board.Tile;
 import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;

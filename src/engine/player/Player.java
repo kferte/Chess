@@ -1,12 +1,12 @@
-package player;
+package engine.player;
 
-import board.Board;
-import board.Move;
+import engine.board.Board;
+import engine.board.Move;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-import pieces.Alliance;
-import pieces.King;
-import pieces.Piece;
+import engine.Alliance;
+import engine.pieces.King;
+import engine.pieces.Piece;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -50,7 +50,7 @@ public abstract class Player {
                 return (King) piece;
             }
         }
-        throw new RuntimeException("Should not reach here! Not a valid board!");
+        throw new RuntimeException("Should not reach here! Not a valid engine.board!");
     }
 
     public boolean isMoveLegal(final Move move){

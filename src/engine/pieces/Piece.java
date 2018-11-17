@@ -1,7 +1,8 @@
-package pieces;
+package engine.pieces;
 
-import board.Board;
-import board.Move;
+import engine.Alliance;
+import engine.board.Board;
+import engine.board.Move;
 
 import java.util.Collection;
 

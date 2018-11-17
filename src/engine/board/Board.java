@@ -1,11 +1,12 @@
-package board;
+package engine.board;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-import pieces.*;
-import player.BlackPlayer;
-import player.Player;
-import player.WhitePlayer;
+import engine.Alliance;
+import engine.pieces.*;
+import engine.player.BlackPlayer;
+import engine.player.Player;
+import engine.player.WhitePlayer;
 
 import java.util.*;
 

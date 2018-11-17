@@ -1,14 +1,14 @@
-package player;
+package engine.player;
 
-import board.Board;
-import board.Move;
-import board.Move.KingSideCastleMove;
-import board.Move.QueenSideCastleMove;
-import board.Tile;
+import engine.board.Board;
+import engine.board.Move;
+import engine.board.Move.KingSideCastleMove;
+import engine.board.Move.QueenSideCastleMove;
+import engine.board.Tile;
 import com.google.common.collect.ImmutableList;
-import pieces.Alliance;
-import pieces.Piece;
-import pieces.Rook;
+import engine.Alliance;
+import engine.pieces.Piece;
+import engine.pieces.Rook;
 
 import java.util.ArrayList;
 import java.util.Collection;

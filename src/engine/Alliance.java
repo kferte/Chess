@@ -1,8 +1,8 @@
-package pieces;
+package engine;
 
-import player.BlackPlayer;
-import player.Player;
-import player.WhitePlayer;
+import engine.player.BlackPlayer;
+import engine.player.Player;
+import engine.player.WhitePlayer;
 
 public enum Alliance {
     WHITE{
