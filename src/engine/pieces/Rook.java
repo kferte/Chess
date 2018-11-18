@@ -28,12 +28,12 @@ public class Rook extends Piece{
             int candidateDestinationCoordinate = this.piecePosition;
 
             while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){
-                candidateDestinationCoordinate += candidateCoordinateOffset;
 
                 if(isFirstColumnExclusion(candidateDestinationCoordinate, candidateCoordinateOffset) ||
                         isEighthColumnExclusion(candidateDestinationCoordinate, candidateCoordinateOffset)){
                     break;
                 }
+                candidateDestinationCoordinate += candidateCoordinateOffset;
 
                 if(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){
                     final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
@@ -67,7 +67,7 @@ public class Rook extends Piece{
     }
 
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset){
-        return true; //BoardUtils.FIRST_COLUMN[currentPosition] && candidateOffset == -1;
+        return BoardUtils.FIRST_COLUMN[currentPosition] && candidateOffset == -1;
     }
 
     private static boolean isEighthColumnExclusion(final int currentPosition, final int candidateOffset){
