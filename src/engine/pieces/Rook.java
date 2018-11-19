@@ -42,9 +42,9 @@ public class Rook extends Piece{
                         legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
                     } else {
                         final Piece pieceAtDestination = candidateDestinationTile.getPiece();
-                        final Alliance pieceAtDestinationAllience = pieceAtDestination.getPieceAlliance();
+                        final Alliance pieceAtDestinationAlliance = pieceAtDestination.getPieceAlliance();
 
-                        if(this.pieceAlliance != pieceAtDestinationAllience) {
+                        if(this.pieceAlliance != pieceAtDestinationAlliance) {
                             legalMoves.add(new Move.AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
                         }
                         break;
