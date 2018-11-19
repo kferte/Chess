@@ -25,12 +25,13 @@ public class King extends Piece {
         final List<Move> legalMoves = new ArrayList<>();
 
         for(final int currentCandidateOffset : CANDIDATE_MOVE_COORDINATES){
-            final int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset;
+
 
             if(isFirstColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                     isEighthCulumnExclusion(this.piecePosition, currentCandidateOffset)){
                 continue;
             }
+            final int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset;
 
             if(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){
                 final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
