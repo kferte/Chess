@@ -90,6 +90,8 @@ public abstract class Move {
             super(board, movedPiece, destinationCoordinate);
         }
 
+
+
     }
 
     public static class AttackMove extends Move{
